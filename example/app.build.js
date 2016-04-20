@@ -8,15 +8,18 @@
   paths: {
     // Set here the path to either the full handlebars library if you want to
     // be able to compile templates on the client, or the runtime only.
-    handlebars: "lib/handlebars-runtime"
+    "handlebars": "lib/handlebars.runtime",
+    "handlebars-compiler": "lib/handlebars",
   },
+  
+  exclude: ["handlebars-compiler"],
 
   name: "js/main",
 
   // Include the require library and the main config in the build so we have
   // only a single file to load. You also could use almond
   // (https://github.com/jrburke/almond) here.
-  deps: ["lib/require", "main.config"],
+  include: ["lib/almond", "main.config"],
 
   // Run the module js/main as soon as it is ready.
   insertRequire: ["js/main"],
